@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fedor Krasnov — Designer</title>
+  <title>Fedor Krasnov</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,24 +16,30 @@
     <div class="avatar">
       <img src="assets/avatar.jpg" alt="Fedor Krasnov" onerror="this.parentNode.style.background='#4a4a4a'">
     </div>
-    <button class="lang-btn">
-      EN
-      <svg class="chevron" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </button>
+    <div class="lang-switcher">
+      <button class="lang-btn" id="lang-btn">
+        <span id="lang-label">EN</span>
+        <svg class="chevron" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12.1926 0H16L11.5653 8H4.43466L0 0H3.80743L6.97662 5.71429H9.02338L12.1926 0Z" fill="currentColor"/>
+        </svg>
+      </button>
+      <div class="lang-dropdown" id="lang-dropdown">
+        <button class="lang-option active" data-lang="en">EN</button>
+        <button class="lang-option" data-lang="ru">RU</button>
+      </div>
+    </div>
   </nav>
 
   <section class="hero">
     <div class="hero-left">
-      <h1 class="name">FEDOR<br>KRASNOV</h1>
+      <h1 class="name" data-en="FEDOR&lt;br&gt;KRASNOV" data-ru="ФЁДОР&lt;br&gt;КРАСНОВ">FEDOR<br>KRASNOV</h1>
       <div class="hero-meta">
         <div class="roles">
-          <p>designer at <a href="https://www.artlebedev.ru" target="_blank" rel="noopener">Art. Lebedev Studio</a></p>
-          <p>author at <a href="#" target="_blank" rel="noopener">Srsly?</a></p>
+          <p><span data-en="designer at" data-ru="дизайнер в">designer at</span>&nbsp;<a id="link-als" href="https://www.artlebedev.com/" data-url-en="https://www.artlebedev.com/" data-url-ru="https://www.artlebedev.ru" data-en="Art. Lebedev Studio" data-ru="Студии Артемия Лебедева" target="_blank" rel="noopener">Art. Lebedev Studio</a></p>
+          <p><span data-en="author at" data-ru="автор">author at</span>&nbsp;<a href="https://t.me/srslyposts" target="_blank" rel="noopener">Srsly?</a></p>
         </div>
         <div class="contact">
-          <p class="label">contact me:</p>
+          <p class="label" data-en="contact me:" data-ru="написать мне:">contact me:</p>
           <p>
             <a href="https://t.me/FKrasnov" target="_blank" rel="noopener">TG: @FKrasnov</a>
             <span class="sep">·</span>
@@ -41,18 +48,27 @@
         </div>
       </div>
     </div>
-    <div class="stats">
-      <div class="stat">
-        <span class="stat-num">14</span>
-        <span class="stat-lbl">projects</span>
+    <div class="hero-right">
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-num" id="stat-projects">11</span>
+          <span class="stat-lbl" data-en="projects" data-ru="проектов">projects</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" id="stat-awards">7</span>
+          <span class="stat-lbl" data-en="awards" data-ru="наград">awards</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" id="stat-years-num">2</span>
+          <span class="stat-lbl" id="stat-years-lbl" data-en="yrs experience">yrs experience</span>
+        </div>
       </div>
-      <div class="stat">
-        <span class="stat-num">7</span>
-        <span class="stat-lbl">awards</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">5</span>
-        <span class="stat-lbl">years of experience</span>
+      <div class="marquee-wrap">
+        <div class="marquee-track">
+          <img class="marquee-svg" src="assets/clients.svg" alt="">
+          <img class="marquee-svg" src="assets/clients.svg" alt="">
+          <img class="marquee-svg" src="assets/clients.svg" alt="">
+        </div>
       </div>
     </div>
   </section>
@@ -69,51 +85,45 @@
       </colgroup>
       <thead>
         <tr>
-          <th>project</th>
-          <th>role</th>
-          <th>company</th>
-          <th>year</th>
-          <th>awards</th>
-          <th>preview</th>
+          <th data-en="project" data-ru="проект">project</th>
+          <th data-en="role" data-ru="роль">role</th>
+          <th data-en="company" data-ru="компания">company</th>
+          <th data-en="year" data-ru="год">year</th>
+          <th data-en="awards" data-ru="награды">awards</th>
+          <th class="th-preview" data-en="preview" data-ru="превью">preview</th>
         </tr>
       </thead>
       <tbody>
 
-        <tr>
-          <td>Third "Campus" cohort</td>
-          <td>designer</td>
-          <td>Art. Lebedev Studio</td>
+        <tr data-url-en="https://www.artlebedev.com/kampus-projects/3/" data-url-ru="https://www.artlebedev.ru/kampus-projects/3/">
+          <td data-en="Third &quot;Campus&quot; cohort" data-ru="Третий поток «Кампуса»">Third "Campus" cohort</td>
+          <td data-en="designer" data-ru="дизайнер">designer</td>
+          <td data-en="Art. Lebedev Studio" data-ru="Студия Артемия Лебедева">Art. Lebedev Studio</td>
           <td>2026</td>
           <td></td>
           <td class="td-preview">
             <div class="preview" style="background: linear-gradient(140deg, #5520c8 0%, #8044e0 100%)">
-              <div class="prev-text" style="color: #fff">
-                <b>КаМПуС</b>
-                <small>ТРЕТИЙ поток</small>
-              </div>
+              <img src="assets/kampus-3.png" style="width:100%;height:100%;object-fit:cover;display:block">
             </div>
           </td>
         </tr>
 
-        <tr>
-          <td>Zhurnalus – 10 years</td>
-          <td>designer</td>
-          <td>Art. Lebedev Studio</td>
+        <tr data-url-en="https://www.artlebedev.com/zhurnalus/ten-years/" data-url-ru="https://www.artlebedev.ru/zhurnalus/ten-years/">
+          <td data-en="Zhurnalus – 10 years" data-ru="Журналус — 10 лет">Zhurnalus – 10 years</td>
+          <td data-en="designer" data-ru="дизайнер">designer</td>
+          <td data-en="Art. Lebedev Studio" data-ru="Студия Артемия Лебедева">Art. Lebedev Studio</td>
           <td>2026</td>
-          <td>Tagline Awards:<br>Best Product of the Year among agencies</td>
+          <td data-en="Tagline Awards:&lt;br&gt;Best Product of&nbsp;the&nbsp;Year among agencies" data-ru="Тэглайн Авордс:&lt;br&gt;Лучший продукт года среди агентств">Tagline Awards:<br>Best Product of&nbsp;the&nbsp;Year among agencies</td>
           <td class="td-preview">
             <div class="preview" style="background: #c8e000">
-              <div class="prev-text" style="color: #000">
-                <span class="prev-subtitle">Журналус</span>
-                <b class="prev-big">10 ЛЕТ</b>
-              </div>
+              <img src="assets/zhurnalus.png" style="width:100%;height:100%;object-fit:cover;display:block">
             </div>
           </td>
         </tr>
 
-        <tr class="is-featured">
+        <tr data-url-en="https://t.me/srslyposts" data-url-ru="https://t.me/srslyposts">
           <td>srsly?</td>
-          <td>author<br>and designer</td>
+          <td data-en="author&lt;br&gt;and&nbsp;designer" data-ru="автор&lt;br&gt;и&nbsp;дизайнер">author<br>and&nbsp;designer</td>
           <td></td>
           <td>2026</td>
           <td></td>
@@ -122,120 +132,122 @@
           </td>
         </tr>
 
-        <tr>
-          <td>Nikolay Ironov's name generator</td>
-          <td>designer</td>
-          <td>Art. Lebedev Studio</td>
+        <tr data-url-en="https://www.artlebedev.com/ironov/naming/" data-url-ru="https://www.artlebedev.ru/ironov/naming/">
+          <td data-en="Nikolay Ironov's name generator" data-ru="Генератор имён Николая Иронова">Nikolay Ironov's name generator</td>
+          <td data-en="designer" data-ru="дизайнер">designer</td>
+          <td data-en="Art. Lebedev Studio" data-ru="Студия Артемия Лебедева">Art. Lebedev Studio</td>
           <td>2026</td>
           <td></td>
           <td class="td-preview">
             <div class="preview" style="background: #1a1a1a">
-              <div class="prev-badges">
-                <span style="background: #c62828; color: #fff">ЛОГО МИКС</span>
-                <span style="background: #1565c0; color: #fff">КЁРНА</span>
-                <span style="background: #2e7d32; color: #fff">NOX ATELIER</span>
-              </div>
+              <video autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;display:block">
+                <source src="assets/ironov-naming.mp4" type="video/mp4">
+              </video>
             </div>
           </td>
         </tr>
 
-        <tr>
-          <td>Single Authorized Zone</td>
-          <td>designer</td>
-          <td>Art. Lebedev Studio</td>
+        <tr data-url-en="https://www.artlebedev.com/als/id/" data-url-ru="https://www.artlebedev.ru/als/id/">
+          <td data-en="Single Authorized Zone" data-ru="Единая авторизованная зона">Single Authorized Zone</td>
+          <td data-en="designer" data-ru="дизайнер">designer</td>
+          <td data-en="Art. Lebedev Studio" data-ru="Студия Артемия Лебедева">Art. Lebedev Studio</td>
           <td>2025</td>
           <td></td>
           <td class="td-preview">
-            <div class="preview" style="background: #070707"></div>
+            <div class="preview" style="background: #070707">
+              <video autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;display:block">
+                <source src="assets/als-id.mp4" type="video/mp4">
+              </video>
+            </div>
           </td>
         </tr>
 
-        <tr>
-          <td>Second "Campus" cohort</td>
-          <td>designer</td>
-          <td>Art. Lebedev Studio</td>
+        <tr data-url-en="https://www.artlebedev.com/kampus-projects/2/" data-url-ru="https://www.artlebedev.ru/kampus-projects/2/">
+          <td data-en="Second &quot;Campus&quot; cohort" data-ru="Второй поток «Кампуса»">Second "Campus" cohort</td>
+          <td data-en="designer" data-ru="дизайнер">designer</td>
+          <td data-en="Art. Lebedev Studio" data-ru="Студия Артемия Лебедева">Art. Lebedev Studio</td>
           <td>2025</td>
           <td></td>
           <td class="td-preview">
             <div class="preview" style="background: linear-gradient(140deg, #c81030 0%, #f04058 100%)">
-              <div class="prev-text" style="color: #fff">
-                <b>КаМПуС</b>
-                <small>второй поток</small>
-              </div>
+              <img src="assets/kampus-2.png" style="width:100%;height:100%;object-fit:cover;display:block">
             </div>
           </td>
         </tr>
 
-        <tr>
-          <td>"Campus" first cohort</td>
-          <td>designer</td>
-          <td>Art. Lebedev Studio</td>
+        <tr data-url-en="https://www.artlebedev.com/kampus-projects/1/" data-url-ru="https://www.artlebedev.ru/kampus-projects/1/">
+          <td data-en="&quot;Campus&quot; first cohort" data-ru="Первый поток «Кампуса»">"Campus" first cohort</td>
+          <td data-en="designer" data-ru="дизайнер">designer</td>
+          <td data-en="Art. Lebedev Studio" data-ru="Студия Артемия Лебедева">Art. Lebedev Studio</td>
           <td>2025</td>
           <td></td>
           <td class="td-preview">
             <div class="preview" style="background: linear-gradient(140deg, #1040c8 0%, #2060f0 100%)">
-              <div class="prev-text" style="color: #fff">
-                <b>КаМПуС</b>
-                <small>первый поток</small>
-              </div>
+              <img src="assets/kampus-1.png" style="width:100%;height:100%;object-fit:cover;display:block">
             </div>
           </td>
         </tr>
 
-        <tr>
-          <td>Nikolay Ironov's color palette generator</td>
-          <td>designer</td>
-          <td>Art. Lebedev Studio</td>
+        <tr data-url-en="https://www.artlebedev.com/ironov/colors/" data-url-ru="https://www.artlebedev.ru/ironov/colors/">
+          <td data-en="Nikolay Ironov's color palette generator" data-ru="Генератор цветовых палитр Николая Иронова">Nikolay Ironov's color palette generator</td>
+          <td data-en="designer" data-ru="дизайнер">designer</td>
+          <td data-en="Art. Lebedev Studio" data-ru="Студия Артемия Лебедева">Art. Lebedev Studio</td>
           <td>2025</td>
           <td></td>
           <td class="td-preview">
-            <div class="preview" style="background: linear-gradient(140deg, #b84020 0%, #e06030 100%)"></div>
-          </td>
-        </tr>
-
-        <tr>
-          <td>Diagnocat promo website</td>
-          <td>designer</td>
-          <td>Art. Lebedev Studio</td>
-          <td>2024</td>
-          <td>
-            Golden Site: Healthcare Site<br>
-            Golden Site: Tagline Awards: The Best Promotional Site<br>
-            Tagline Awards: Best International Website<br>
-            Tagline Awards: Best AI Technology: Medicine<br>
-            Runet Ranking: Best Foreign Language Website
-          </td>
-          <td class="td-preview">
-            <div class="preview" style="background: #ededed"></div>
-          </td>
-        </tr>
-
-        <tr>
-          <td>Nikolay Ironov — 5 years</td>
-          <td>designer</td>
-          <td>Art. Lebedev Studio</td>
-          <td>2024</td>
-          <td>Tagline Awards:<br>Best Product of the Year among agencies</td>
-          <td class="td-preview">
-            <div class="preview" style="background: linear-gradient(140deg, #081228 0%, #142040 100%)">
-              <div class="prev-text" style="color: #fff">
-                <b class="prev-big">5ЛЕТ</b>
+            <div class="preview" style="background: linear-gradient(140deg, #b84020 0%, #e06030 100%)">
+                <video autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;display:block">
+                  <source src="assets/ironov-colors.mp4" type="video/mp4">
+                </video>
               </div>
+          </td>
+        </tr>
+
+        <tr data-url-en="https://www.artlebedev.com/diagnocat/site/" data-url-ru="https://www.artlebedev.ru/diagnocat/site/">
+          <td data-en="Diagnocat promo website" data-ru="Промо-сайт «Диагноката»">Diagnocat promo website</td>
+          <td data-en="designer" data-ru="дизайнер">designer</td>
+          <td data-en="Art. Lebedev Studio" data-ru="Студия Артемия Лебедева">Art. Lebedev Studio</td>
+          <td>2024</td>
+          <td data-en="&lt;p&gt;Golden Site: Healthcare Site&lt;/p&gt;&lt;p&gt;Golden Site: The&nbsp;Best Promotional Site&lt;/p&gt;&lt;p&gt;Tagline Awards: Best International Website&lt;/p&gt;&lt;p&gt;Tagline Awards: Best AI Technology: Medicine&lt;/p&gt;&lt;p&gt;Runet Ranking: Best Foreign Language Website&lt;/p&gt;" data-ru="&lt;p&gt;Золотой сайт: Медицинский сайт&lt;/p&gt;&lt;p&gt;Золотой сайт: Лучший промосайт&lt;/p&gt;&lt;p&gt;Тэглайн Авордс: Лучший международный сайт&lt;/p&gt;&lt;p&gt;Тэглайн Авордс: Лучшие AI-технологии: Медицина&lt;/p&gt;&lt;p&gt;Рейтинг Рунета: Лучший иноязычный сайт&lt;/p&gt;">
+            <p>Golden Site: Healthcare Site</p>
+            <p>Golden Site: The&nbsp;Best Promotional Site</p>
+            <p>Tagline Awards: Best International Website</p>
+            <p>Tagline Awards: Best AI Technology: Medicine</p>
+            <p>Runet Ranking: Best Foreign Language Website</p>
+          </td>
+          <td class="td-preview">
+            <div class="preview" style="background: #ededed">
+              <video autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;display:block">
+                <source src="assets/diagnocat-site.mp4" type="video/mp4">
+              </video>
             </div>
           </td>
         </tr>
 
-        <tr>
-          <td>Potokus × Equium</td>
-          <td>designer</td>
-          <td>Art. Lebedev Studio</td>
+        <tr data-url-en="https://www.artlebedev.com/ironov/five-years/" data-url-ru="https://www.artlebedev.ru/ironov/five-years/">
+          <td data-en="Nikolay Ironov — 5 years" data-ru="Николай Иронов — 5 лет">Nikolay Ironov — 5 years</td>
+          <td data-en="designer" data-ru="дизайнер">designer</td>
+          <td data-en="Art. Lebedev Studio" data-ru="Студия Артемия Лебедева">Art. Lebedev Studio</td>
+          <td>2024</td>
+          <td data-en="Russian National Award in&nbsp;Creative Industries" data-ru="Национальная премия в&nbsp;области креативных индустрий">Russian National Award in&nbsp;Creative Industries</td>
+          <td class="td-preview">
+            <div class="preview" style="background: linear-gradient(140deg, #081228 0%, #142040 100%)">
+              <video autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;display:block">
+                <source src="assets/ironov-5years.mp4" type="video/mp4">
+              </video>
+            </div>
+          </td>
+        </tr>
+
+        <tr data-url-en="https://www.artlebedev.com/equium/" data-url-ru="https://www.artlebedev.ru/equium/">
+          <td data-en="Potokus × Equium" data-ru="«Потокус» × «Эквиум»">Potokus × Equium</td>
+          <td data-en="designer" data-ru="дизайнер">designer</td>
+          <td data-en="Art. Lebedev Studio" data-ru="Студия Артемия Лебедева">Art. Lebedev Studio</td>
           <td>2024</td>
           <td></td>
           <td class="td-preview">
             <div class="preview" style="background: #0c0808">
-              <div class="prev-text">
-                <b style="font-size: 18px; color: #c8a000; letter-spacing: 0.06em">ЭКБИУМ</b>
-              </div>
+              <img src="assets/potokus-preview.png" style="width:100%;height:100%;object-fit:cover;display:block">
             </div>
           </td>
         </tr>
@@ -243,6 +255,166 @@
       </tbody>
     </table>
   </main>
+
+  <script>
+    const btn      = document.getElementById('lang-btn');
+    const dropdown = document.getElementById('lang-dropdown');
+    const label    = document.getElementById('lang-label');
+
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const open = dropdown.classList.toggle('open');
+      btn.classList.toggle('open', open);
+    });
+
+    document.addEventListener('click', () => {
+      dropdown.classList.remove('open');
+      btn.classList.remove('open');
+    });
+
+    dropdown.addEventListener('click', e => {
+      e.stopPropagation();
+      const opt = e.target.closest('.lang-option');
+      if (opt) setLang(opt.dataset.lang);
+    });
+
+    function ruYears(n) {
+      const abs = Math.abs(n) % 100;
+      const rem = abs % 10;
+      if (abs >= 11 && abs <= 14) return 'лет опыта';
+      if (rem === 1) return 'год опыта';
+      if (rem >= 2 && rem <= 4) return 'года опыта';
+      return 'лет опыта';
+    }
+
+    function calcYearsExperience() {
+      const start = new Date(2024, 6, 24);
+      const now = new Date();
+      let years = now.getFullYear() - start.getFullYear();
+      const hadAnniversary =
+        now.getMonth() > start.getMonth() ||
+        (now.getMonth() === start.getMonth() && now.getDate() >= start.getDate());
+      if (!hadAnniversary) years--;
+      return Math.max(years, 0);
+    }
+
+    document.getElementById('stat-years-num').textContent = calcYearsExperience();
+
+    function updateYearsLabel(lang) {
+      const n = parseInt(document.getElementById('stat-years-num').textContent, 10);
+      document.getElementById('stat-years-lbl').textContent =
+        lang === 'ru' ? ruYears(n) : 'yrs experience';
+    }
+
+    function setLang(lang) {
+      document.querySelectorAll('[data-en]').forEach(el => {
+        el.innerHTML = el.dataset[lang] ?? el.dataset.en;
+      });
+      updateYearsLabel(lang);
+      document.querySelectorAll('[data-url-en][data-url-ru]').forEach(el => {
+        if (el.tagName === 'A') el.href = lang === 'ru' ? el.dataset.urlRu : el.dataset.urlEn;
+      });
+      label.textContent = lang.toUpperCase();
+      document.querySelectorAll('.lang-option').forEach(o => {
+        o.classList.toggle('active', o.dataset.lang === lang);
+      });
+      localStorage.setItem('lang', lang);
+      dropdown.classList.remove('open');
+      btn.classList.remove('open');
+    }
+
+    const saved = localStorage.getItem('lang');
+    if (saved && saved !== 'en') setLang(saved);
+    else updateYearsLabel('en');
+
+    document.getElementById('stat-projects').textContent =
+      document.querySelectorAll('.projects tbody tr').length;
+
+    let awardCount = 0;
+    document.querySelectorAll('.projects tbody tr').forEach(row => {
+      const cell = row.cells[4];
+      const ps = cell.querySelectorAll('p');
+      awardCount += ps.length > 0 ? ps.length : (cell.textContent.trim() ? 1 : 0);
+    });
+    document.getElementById('stat-awards').textContent = awardCount;
+
+    document.querySelectorAll('tr[data-url-en]').forEach(row => {
+      row.addEventListener('click', () => {
+        const lang = localStorage.getItem('lang') || 'en';
+        const url = lang === 'ru' ? row.dataset.urlRu : row.dataset.urlEn;
+        window.open(url, '_blank');
+      });
+    });
+
+    function setPreviewFirst(isFirst) {
+      const colgroup = document.querySelector('.projects colgroup');
+      const previewCol = colgroup.querySelector('.c-preview');
+      if (isFirst) colgroup.insertBefore(previewCol, colgroup.firstElementChild);
+      else colgroup.appendChild(previewCol);
+
+      document.querySelectorAll('.projects thead tr, .projects tbody tr').forEach(row => {
+        const previewCell = row.querySelector('.th-preview, .td-preview');
+        if (!previewCell) return;
+        if (isFirst) row.insertBefore(previewCell, row.firstElementChild);
+        else row.appendChild(previewCell);
+      });
+    }
+
+    const main = document.querySelector('main');
+    const projectsTable = document.querySelector('.projects');
+    const liveThead = projectsTable.querySelector('thead');
+
+    const stickyWrap = document.createElement('div');
+    stickyWrap.className = 'sticky-thead-wrap';
+    const stickyTable = document.createElement('table');
+    stickyTable.className = 'projects';
+    stickyWrap.appendChild(stickyTable);
+    document.body.appendChild(stickyWrap);
+
+    let isStuck = false;
+
+    function refreshStickyContent() {
+      stickyTable.innerHTML = '';
+      stickyTable.appendChild(projectsTable.querySelector('colgroup').cloneNode(true));
+      stickyTable.appendChild(liveThead.cloneNode(true));
+      stickyTable.style.width = projectsTable.offsetWidth + 'px';
+    }
+
+    function syncStickyHeader() {
+      const mainRect = main.getBoundingClientRect();
+      const theadHeight = liveThead.offsetHeight;
+      const shouldStick = theadHeight > 0 && mainRect.top < 0 && mainRect.bottom > theadHeight;
+
+      if (shouldStick) {
+        if (!isStuck) {
+          refreshStickyContent();
+          stickyWrap.style.display = 'block';
+          isStuck = true;
+        }
+        stickyWrap.style.left = mainRect.left + 'px';
+        stickyWrap.style.width = mainRect.width + 'px';
+        stickyTable.style.transform = `translateX(${-main.scrollLeft}px)`;
+      } else if (isStuck) {
+        stickyWrap.style.display = 'none';
+        isStuck = false;
+      }
+    }
+
+    window.addEventListener('scroll', syncStickyHeader, { passive: true });
+    window.addEventListener('resize', syncStickyHeader);
+    main.addEventListener('scroll', syncStickyHeader, { passive: true });
+    main.addEventListener('touchmove', syncStickyHeader, { passive: true });
+    syncStickyHeader();
+
+    const previewBreakpoint = window.matchMedia('(max-width: 580px)');
+    const handlePreviewBreakpoint = e => {
+      setPreviewFirst(e.matches);
+      if (isStuck) refreshStickyContent();
+      syncStickyHeader();
+    };
+    previewBreakpoint.addEventListener('change', handlePreviewBreakpoint);
+    handlePreviewBreakpoint(previewBreakpoint);
+  </script>
 
 </body>
 </html>
